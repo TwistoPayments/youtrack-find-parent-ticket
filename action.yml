@@ -1,0 +1,23 @@
+name: 'YourTrack parent finder'
+description: 'This actions returns top parent of issue, if it is exists. It is uses recursive strategy.'
+author: 'Twisto'
+inputs:
+  issue_id:
+    required: true
+    description: 'Id or human id of YouTrack issue'
+  youtrack_base_url:
+    required: true
+    description: 'http://{company}.youtrack.com'
+  youtrack_token:
+    required: true
+    description: 'perm:your-secret-token'
+
+outputs:
+  parent_id:
+    description: 'Id of parent if exists'
+  parent_human_id:
+    description: 'Human readable (<project-short-name>–<order-number-in-project>) id of parent if exist'
+   
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
